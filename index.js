@@ -1,23 +1,14 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const { default: mongoose } = require('mongoose');
+import express from 'express';
+import { config } from 'dotenv';
+import routes from './src/routes/index.js';
+import bodyParser from 'body-parser';
 
-dotenv.config();
+config();
 const app = express();
 const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
-
-mongoose
-  .connect(process.env.DATABASE_URL)
-  .then(() => {
-    console.log('Connect to database successfully');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+app.use(bodyParser.json());
+routes(app);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
