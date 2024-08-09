@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -12,5 +11,13 @@
   },
   "scripts": {
     "start": "nodemon index.js"
-  }
+  },
+  "type": "module",
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
